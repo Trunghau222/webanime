@@ -1,20 +1,22 @@
 <?php
  class indexController extends framework
  {
-     private $loaisanpham;
+     private $taikhoan;
      private $sanphamModel;
 
     public function __construct()
     {
- 
+      $this->loadmodel("TaikhoanModel");
+      $this->taikhoan = new taikhoan();
     }
      public function index()
      {
-        echo "123";
+        $data= $this->taikhoan->get_taikhoan();
+        foreach ($data as $key => $value) {
+           echo $data[$key]['id'];
+        }
+        print_r($data);
      }
-     public function index1()
-     {
-        echo "1234";
-     }
+    
  }
 ?>
