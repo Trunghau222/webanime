@@ -1,8 +1,5 @@
 
 <!DOCTYPE html>
-<%@ include file="/common/taglib.jsp" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <html lang="zxx">
 
 <head>
@@ -14,7 +11,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Anime | NTH</title>
     <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT15fB7UPp_UmuQLlmsYnwN8wQ0mQvdFHc84bDLnkzLW9AXyvtfbCUu93m-sNsq1EBSICU&usqp=CAU" type="image/x-icon">
-     <link rel="stylesheet" href="<c:url value="/resources/admin/vendors/toastify/toastify.css"/>">
+        <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+      <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+     <link href="<?php linkCSS("public/assets/css/bootstrap.min.css"); ?>" rel="stylesheet">    
+    <link rel="stylesheet"  href="<?php linkCSS("public/assets/css/font-awesome.min.css"); ?>"  type="text/css">
+    <link rel="stylesheet" href="<?php linkCSS("public/assets/css/elegant-icons.css"); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php linkCSS("public/assets/css/plyr.css"); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php linkCSS("public/assets/css/nice-select.css"); ?>" type="text/css">
+     <link rel="stylesheet" href="<?php linkCSS("public/assets/css/owl.carousel.min.css"); ?>" />" type="text/css">
+     <link rel="stylesheet" href="<?php linkCSS("public/assets/css/slicknav.min.css"); ?>" />" type="text/css">
+      <link rel="stylesheet" href="<?php linkCSS("public/assets/css/style.css"); ?>" />" type="text/css">
+      <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT15fB7UPp_UmuQLlmsYnwN8wQ0mQvdFHc84bDLnkzLW9AXyvtfbCUu93m-sNsq1EBSICU&usqp=CAU" type="image/x-icon">   
+      <link rel="stylesheet" href="<?php linkCSS("public/assets/admin/vendors/toastify/toastify.css"); ?>">
 </head>
 
 <body>

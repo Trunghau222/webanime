@@ -6,16 +6,12 @@
 
     public function __construct()
     {
-      $this->loadmodel("TaikhoanModel");
-      $this->taikhoan = new taikhoan();
+       $this->helpers("link");
+      
     }
      public function index()
      {
-        $data= $this->taikhoan->get_taikhoan();
-        foreach ($data as $key => $value) {
-           echo $data[$key]['id'];
-        }
-        print_r($data);
+        return $this->loadview("index");
      }
     
  }
