@@ -228,52 +228,61 @@
                         </ul>
                         <div class="filter__gallery">
                             <!-- flim day -->
-                            <c:forEach var="item" items="${day_film}">
+                        <?php foreach ($data['day_view'] as $key => $value) 
+                            {
+                        ?>  
                                 <div class="product__sidebar__view__item set-bg mix day "
-                                    data-setbg="${item.film_img }">
-                                    <div class="ep">${item.film_current_episode } / ${item.film_end_episode }</div>
-                                    <div class="view"><i class="fa fa-eye"></i> ${item.flim_views }</div>
-                                    <h5><a href="#">${item.film_name_real }</a></h5>
+                                    data-setbg="<?= $value['film_img'] ?>">
+                                    <div class="ep"><?= $value['film_current_episode'] ?>/ <?= $value['film_end_episode'] ?></div>
+                                    <div class="view"><i class="fa fa-eye"></i><?= $value['film_views'] ?></div>
+                                    <h5><a href="#"><?= $value['film_name_real'] ?></a></h5>
                                 </div>
-                            </c:forEach>
+                        <?php } ?>
                             <!-- flim week -->
-                            <c:forEach var="item" items="${week_film}">
+                        <?php foreach ($data['week_view'] as $key => $value) 
+                            {
+                        ?>  
                                 <div class="product__sidebar__view__item set-bg mix week"
-                                    data-setbg="${item.film_img }">
-                                    <div class="ep">${item.film_current_episode } / ${item.film_end_episode }</div>
-                                    <div class="view"><i class="fa fa-eye"></i> ${item.flim_views }</div>
-                                    <h5><a href="#">${item.film_name_real }</a></h5>
+                                    data-setbg="<?= $value['film_img'] ?>">
+                                    <div class="ep"><?= $value['film_current_episode'] ?>/ <?= $value['film_end_episode'] ?></div>
+                                    <div class="view"><i class="fa fa-eye"></i><?= $value['film_views'] ?></div>
+                                    <h5><a href="#"><?= $value['film_name_real'] ?></a></h5>
                                 </div>
-                            </c:forEach>
+                        <?php } ?>        
                             <!-- flim year -->
+                        <?php foreach ($data['month_view'] as $key => $value) 
+                            {
+                        ?>      
                             <c:forEach var="item" items="${month_film}">
                                 <div class="product__sidebar__view__item set-bg mix month"
-                                    data-setbg="${item.film_img }">
-                                    <div class="ep">${item.film_current_episode } / ${item.film_end_episode }</div>
-                                    <div class="view"><i class="fa fa-eye"></i> ${item.flim_views }</div>
-                                    <h5><a href="#">${item.film_name_real }</a></h5>
+                                    data-setbg="<?= $value['film_img'] ?>">
+                                    <div class="ep"><?= $value['film_current_episode'] ?>/ <?= $value['film_end_episode'] ?></div>
+                                    <div class="view"><i class="fa fa-eye"></i><?= $value['film_views'] ?></div>
+                                    <h5><a href="#"><?= $value['film_name_real'] ?></a></h5>
                                 </div>
-                            </c:forEach>
+                        <?php } ?>                
                         </div>
                     </div>
                     <div class="product__sidebar__comment">
                         <div class="section-title">
                             <h5>New Comment</h5>
                         </div>
-                        <c:forEach var="item" items="${newComment}">
+                    <?php foreach ($data['newcomment'] as $key => $value) 
+                            {
+                    ?>
                             <div class="product__sidebar__comment__item">
                                 <div class="product__sidebar__comment__item__pic">
-                                    <img src="${item.film_img }" alt="loi">
+                                    <img src="<?= $value['film_img'] ?>" alt="loi">
                                 </div>
                                 <div class="product__sidebar__comment__item__text">
                                     <ul>
                                         <li>Movie</li>
                                     </ul>
-                                    <h5><a href="#">${item.film_name_real }</a></h5>
-                                    <span><i class="fa fa-eye"></i>${item.flim_views } Viewes</span>
+                                    <h5><a href="#"><?= $value['film_name_real'] ?></a></h5>
+                                    <span><i class="fa fa-eye"></i><?= $value['flim_views'] ?> Views</span>
                                 </div>
                             </div>
-                        </c:forEach>
+                    <?php } ?>    
                     </div>
                 </div>
             </div>
