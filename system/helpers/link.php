@@ -2,7 +2,7 @@
  function linkCSS($cssPath)
  {
      $url=BASEURL."/".$cssPath;
-     echo "<link rel='stylesheet' href='$url'>";
+     echo "<link rel='stylesheet' href='$url'  type='text/css'>";
  }
  function linkJS($jsPath)
  {

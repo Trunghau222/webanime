@@ -10,16 +10,17 @@
             return $this->connect;          
         }
 
-        public function All($table,$Select=['*'],$orderby=[],$limit=100)
+        public function All($table,$Select=['*'],$orderby=[],$limit=[0,10000])
         {
             $this->data =[];
             $colums=implode(',',$Select);
             $stringOrderby=implode(' ',$orderby);
+            $stringlimit = implode(",", $limit);
             if($stringOrderby)
             {              
-                $sql="SELECT {$colums} from ${table} ORDER BY ${stringOrderby} limit ${limit}";
+                $sql="SELECT {$colums} from ${table} ORDER BY ${stringOrderby} limit ${stringlimit}";
                
-            }else  $sql="SELECT {$colums} from ${table} limit ${limit}";
+            }else  $sql="SELECT {$colums} from ${table} limit ${stringlimit}";
             $query=$this->_query($sql);       
             while($rows = mysqli_fetch_assoc($query))
             {
@@ -30,7 +31,7 @@
        // lay du liệu theo điều kiện
        public function check_ALl($table,$data=[], $limit = [0,10000])
        {   
-        $this->data =[];  
+            $this->data =[];  
            $dataset=array();             
            foreach ($data as $key => $value) {
                array_push($dataset,"${key}= '".$value."'");
@@ -104,6 +105,17 @@
         {
             $query= mysqli_query($this->connect,$sql) or die('try vấn bị lỗi');
             return $query;
+        }
+        // xử lý sql với join;
+        public function checkSql($sql)
+        {
+            $this->data =[];
+            $query=$this->_query($sql);       
+            while($rows = mysqli_fetch_assoc($query))
+            {
+                array_push($this->data, $rows);
+            }   
+                return $this->data;
         }
     }
 ?>
