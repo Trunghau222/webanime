@@ -6,4 +6,8 @@
         {
             return $this->All(self::TABLE_NAME);
         }
+        public function getTypeById($id)
+        {
+            return $this->check(self::TABLE_NAME, ['type_id' => $id]);
+        }
     }

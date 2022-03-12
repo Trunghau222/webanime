@@ -10,6 +10,7 @@ use function PHPSTORM_META\type;
         const DAY = 5;
         const WEEK = 5;
         const MONTH = 5;
+        const PHANTRANG = 15;
         public function getTopflim()
         {
             $toptrend = $this->All(self::TABLE_NAME, ['*'], ['film_views','DESC'], [0,self::TOP]);
@@ -43,5 +44,23 @@ use function PHPSTORM_META\type;
             $sql = "SELECT film.* FROM comment INNER JOIN film ON film.film_id = comment.commet_film  GROUP BY comment.commet_film  ORDER BY comment.comment_id DESC LIMIT 0,5";
             $newComment = $this->checkSql($sql);
             return $newComment;
+        }
+        public function films_type($type_id, $page = 1)
+        {
+            $start = ($page - 1) * self::PHANTRANG;
+            $end =$start + self::PHANTRANG;
+            // $sql = "SELECT film.* FROM episode INNER JOIN film ON film.film_id = episode.film_id   WHERE film.film_type = $type_id GROUP BY episode.film_id  ORDER BY episode.episode_id DESC LIMIT $start,$end";
+            // $film_type = $this->checkSql($sql);
+            // die($sql);
+            $film_type = $this->check_ALl(self::TABLE_NAME, ['film_type' => $type_id], [$start,$end]);  
+            return $film_type;
+        }
+        public function films_type_sumTrang($type_id)
+        {
+            $film_type = $this->check_ALl(self::TABLE_NAME, ['film_type' => $type_id]);
+            $sum = count($film_type) % self::PHANTRANG;
+            if($sum == 0) $sum = count($film_type) % self::PHANTRANG;
+            else $sum =  floor(count($film_type) % self::PHANTRANG)+1;
+            return $sum;
         }
     }
