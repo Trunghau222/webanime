@@ -175,7 +175,7 @@
                             </div>
                             <div class="anime__details__btn">
                                 <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
-                                <a href="<?=  BASEURL;  ?>watch/film/<?= $data['film_by_id']['film_id'] ?>#player"
+                                <a href="<?=  BASEURL;  ?>watch/film/<?= $data['film_by_id']['film_id'] ?>/1#player"
                                     class="watch-btn"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>

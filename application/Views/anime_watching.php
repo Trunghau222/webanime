@@ -127,7 +127,7 @@
                 <div class="col-lg-12">
                     <div class="anime__video__player">
                         <video id="player" playsinline controls data-poster="<?= BASEURL_CSS ?>/public/assets/videos/anime-watch.jpg">
-						    <source src="<?= $data['episode_film']['episode_video'] ?>" type="video/mp4" />
+						    <source src="<?= $data['episode_film'][0]['episode_video'] ?>" type="video/mp4" />
 						    	<!-- Captions are optional -->
 						    <track kind="captions" label="English captions" src="#" srclang="en" default />
                     </div>              
@@ -136,10 +136,10 @@
                             <h5>List Name</h5>
                         </div>
                         <?php 
-                            foreach ($data['episode_film'] as $key => $value) 
+                            foreach ($data['episode_film_all'] as $key => $value) 
                             { 
                         ?>
-                         	<a href="<?= BASEURL ?>watch/film/<?= $value['episode_name'] ?>#player">Ep <?= $value['episode_name'] ?></a>
+                         	<a href="<?= BASEURL ?>watch/film/<?= $value['film_id'] ?>/<?= $value['episode_name'] ?>#player">Ep <?= $value['episode_name'] ?></a>
                        <?php } ?>
    
                     </div>

@@ -10,9 +10,15 @@ class episode extends database
         return $this->checkSql($sql);       
     }
     
-    public function getEpisode_by_film_id($film_id)
+    public function getEpisode_by_film_id($film_id, $episode_name)
     {
-        $sql = "SELECT * FROM episode WHERE episode.film_id = $film_id ORDER BY episode.episode_name ASC";
+        $sql = "SELECT * FROM episode WHERE episode.film_id = $film_id AND episode.episode_name = $episode_name ORDER BY episode.episode_name ASC";
+        $Episode_by_film_id = $this->checkSql($sql);
+        return $Episode_by_film_id;
+    }
+    public function getEpisode_by_film_id_all($film_id)
+    {
+        $sql = "SELECT * FROM episode WHERE episode.film_id = $film_id  ORDER BY episode.episode_name ASC";
         $Episode_by_film_id = $this->checkSql($sql);
         return $Episode_by_film_id;
     }
