@@ -3,20 +3,22 @@
  {
     private $type;
     private $film;
-    private $episode;
-     public function __construct()
+    private $commnet;
+
+      public function __construct()
      {
         $this->helpers("link");
         $this->loadmodel("typeModel");
         $this->type = new type();
         $this->loadmodel("filmModel");
         $this->film = new film();
-        $this->loadmodel("episodeModel");
-        $this->episode = new episode();
+        $this->loadmodel("commentModel");
+        $this->commnet = new comment();
      }
+     
      public function categories($type_id,$page = 1)
      {
-         if(isset($_GET['page'])) $page = $_GET['page'];
+        if(isset($_GET['page'])) $page = $_GET['page'];
         $type_all = $this->type->getALL_type();
         $type_by_id = $this->type->getTypeById($type_id);            
         $day_view = $this->film->Day_view();
@@ -32,5 +34,18 @@
                                          "type_by_id" => $type_by_id, "sumTrang_film_type" => $sumTrang_film_type,
                                         "page" => $page
                                          ]);
+     }
+
+     public function anime_details($id_film = 1)
+     {
+        $type_all = $this->type->getALL_type();
+        $film_by_id = $this->film->get_film_by_id($id_film);
+        $type_by_id = $this->type->getTypeById($film_by_id['film_type']);
+        $comment_film = $this->commnet->comment_by_film_id($id_film);
+        $film_same_kind = $this->film->same_kind($id_film);
+        return $this->loadview("anime_details",  ["type_all" => $type_all, "type_by_id" => $type_by_id,
+                                                "film_by_id" => $film_by_id, "comment_film" => $comment_film,
+                                                "film_same_kind" => $film_same_kind
+                                                ]);
      }
  }

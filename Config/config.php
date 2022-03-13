@@ -5,7 +5,8 @@
     define("PASSWORD",'');
     define("DB_NAME", "webanime");
     // URL
-    define("BASEURL","http://localhost/webanime_php");
+    define("BASEURL_CSS","http://localhost/webanime_php");
+    define("BASEURL","http://localhost/webanime_php/?url=");
     // FODER 
     define("FORDER","C:/xampp/htdocs/webanime_php/application/Views/page/");
     

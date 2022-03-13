@@ -41,7 +41,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="<?=  BASEURL;  ?>">
+                        <a href="<?=  BASEURL;  ?>index">
                             <img src="img/logo.png" alt="">
                         </a>
                     </div>
@@ -50,14 +50,14 @@
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li class="active"><a href="<?=  BASEURL;  ?>">Homepage</a></li>
-                                <li><a href="<?=  BASEURL;  ?>/categories/1">Categories <span
+                                <li class="active"><a href="<?=  BASEURL;  ?>index">Homepage</a></li>
+                                <li><a href="<?=  BASEURL;  ?>film/categories/1">Categories <span
                                             class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
                                         <?php foreach ($data['type_all'] as $key => $value) 
                                             {
                                          ?>
-                                        <li><a href="<?=  BASEURL;  ?>/film/categories/<?=  $value["type_id"]; ?>"><?= $value['type_name'] ?></a>
+                                        <li><a href="<?=  BASEURL;  ?>film/categories/<?=  $value["type_id"]; ?>"><?= $value['type_name'] ?></a>
                                         </li>
                                         <?php } ?>
                                     </ul>
@@ -164,7 +164,7 @@
                                             <li>Movie</li>
                                         </ul>
                                         <h5><a
-                                                href="<?=  BASEURL;  ?>/thong-tin-phim/${item.film_id}"><?= $value['film_name_real'] ?></a>
+                                                href="<?=  BASEURL;  ?>film/anime_details/<?= $value['film_id'] ?>"><?= $value['film_name_real'] ?></a>
                                         </h5>
                                     </div>
                                 </div>
@@ -205,7 +205,7 @@
                                             <li>Movie</li>
                                         </ul>
                                         <h5><a
-                                                href="<?=  BASEURL;  ?>/thong-tin-phim/<?= $value['film_id']?>"><?= $value['film_name_real']?></a>
+                                                href="<?=  BASEURL;  ?>film/anime_details/<?= $value['film_id'] ?>"><?= $value['film_name_real']?></a>
                                         </h5>
                                     </div>
                                 </div>
@@ -234,7 +234,7 @@
                                     data-setbg="<?= $value['film_img'] ?>">
                                     <div class="ep"><?= $value['film_current_episode'] ?>/ <?= $value['film_end_episode'] ?></div>
                                     <div class="view"><i class="fa fa-eye"></i><?= $value['film_views'] ?></div>
-                                    <h5><a href="#"><?= $value['film_name_real'] ?></a></h5>
+                                    <h5><a href="<?=  BASEURL;  ?>film/anime_details/<?= $value['film_id'] ?>"><?= $value['film_name_real'] ?></a></h5>
                                 </div>
                         <?php } ?>
                             <!-- flim week -->
@@ -245,7 +245,7 @@
                                     data-setbg="<?= $value['film_img'] ?>">
                                     <div class="ep"><?= $value['film_current_episode'] ?>/ <?= $value['film_end_episode'] ?></div>
                                     <div class="view"><i class="fa fa-eye"></i><?= $value['film_views'] ?></div>
-                                    <h5><a href="#"><?= $value['film_name_real'] ?></a></h5>
+                                    <h5><a href="<?=  BASEURL;  ?>film/anime_details/<?= $value['film_id'] ?>"><?= $value['film_name_real'] ?></a></h5>
                                 </div>
                         <?php } ?>        
                             <!-- flim year -->
@@ -257,7 +257,7 @@
                                     data-setbg="<?= $value['film_img'] ?>">
                                     <div class="ep"><?= $value['film_current_episode'] ?>/ <?= $value['film_end_episode'] ?></div>
                                     <div class="view"><i class="fa fa-eye"></i><?= $value['film_views'] ?></div>
-                                    <h5><a href="#"><?= $value['film_name_real'] ?></a></h5>
+                                    <h5><a href="<?=  BASEURL;  ?>film/anime_details/<?= $value['film_id'] ?>"><?= $value['film_name_real'] ?></a></h5>
                                 </div>
                         <?php } ?>                
                         </div>
@@ -277,7 +277,7 @@
                                     <ul>
                                         <li>Movie</li>
                                     </ul>
-                                    <h5><a href="#"><?= $value['film_name_real'] ?></a></h5>
+                                    <h5><a href="<?=  BASEURL;  ?>film/anime_details/<?= $value['film_id'] ?>"><?= $value['film_name_real'] ?></a></h5>
                                     <span><i class="fa fa-eye"></i><?= $value['flim_views'] ?> Views</span>
                                 </div>
                             </div>
@@ -305,10 +305,10 @@
                 <div class="col-lg-6">
                     <div class="footer__nav">
                         <ul>
-                            <li class="active"><a href="./index.html">Homepage</a></li>
-                            <li><a href="<?=  BASEURL;  ?>/categories/1">Categories</a></li>
+                            <li class="active"><a href="<?=  BASEURL;  ?>index">Homepage</a></li>
+                            <li><a href="<?=  BASEURL;  ?>film/categories/1">Categories</a></li>
                             <li><a href="./blog.html">Our Blog</a></li>
-                            <li><a href="<?=  BASEURL;  ?>/contact">Contacts</a></li>
+                            <li><a href="<?=  BASEURL;  ?>contact">Contacts</a></li>
                         </ul>
                     </div>
                 </div>
@@ -332,7 +332,7 @@
     <div class="search-model">
         <div class="h-100 d-flex align-items-center justify-content-center">
             <div class="search-close-switch"><i class="icon_close"></i></div>
-            <form class="search-model-form" action="<?=  BASEURL;  ?>/search" method="get">
+            <form class="search-model-form" action="<?=  BASEURL;  ?>search" method="get">
                 <input name="search" type="text" id="search-input" placeholder="Search here.....">
             </form>
         </div>

@@ -63,4 +63,17 @@ use function PHPSTORM_META\type;
             else $sum =  floor(count($film_type) % self::PHANTRANG)+1;
             return $sum;
         }
+        public function get_film_by_id($id_film)
+        {          
+            $film_by_id = $this->check(self::TABLE_NAME, ['film_id' => $id_film]);
+            return $film_by_id;
+        }
+        public function same_kind($id_film)
+        {
+            $film = $this->check(self::TABLE_NAME, ['film_id']);
+            $film_type = $film['film_type'];
+            $sql  = "SELECT * FROM `film` WHERE film_type = $film_type AND  NOT film_id = $id_film LIMIT 0,3";
+            $film_same_kind = $this->checkSql($sql);
+            return $film_same_kind;
+        }
     }

@@ -35,8 +35,6 @@
         <div class="loader"></div>
     </div>
 
-
-
     <!-- Header Section Begin -->
     <header class="header">
         <div class="container">
@@ -56,11 +54,11 @@
                                 <li><a href="<?=  BASEURL;  ?>film/categories/1">Categories <span
                                             class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
-
                                         <?php foreach ($data['type_all'] as $key => $value) 
                                             {
                                          ?>
-                                        <li><a href="<?=  BASEURL;  ?>film/categories/<?=  $value["type_id"]; ?>"><?= $value['type_name'] ?></a>
+                                        <li><a
+                                                href="<?=  BASEURL;  ?>film/categories/<?=  $value["type_id"]; ?>"><?= $value['type_name'] ?></a>
                                         </li>
                                         <?php } ?>
                                     </ul>
@@ -122,150 +120,126 @@
     </div>
     <!-- Breadcrumb End -->
 
-    <!-- Product Section Begin -->
-    <section class="product-page spad">
+    <!-- Anime Section Begin -->
+    <section class="anime-details spad">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="product__page__content">
-                        <div class="product__page__title">
-                            <div class="row">
-                                <div class="col-lg-8 col-md-8 col-sm-6">
-                                    <div class="section-title">
-                                        <h4><?= $data['type_by_id']['type_name'] ?></h4>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-6">
-                                    <div class="product__page__filter">
-                                        <p>Order by:</p>
-                                        <select id="sapxep" onchange="sapxep()">
-                                            <option value="hello">A-Z</option>
-                                            <option value="02">1-10</option>
-                                            <option value="">10-50</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                        <?php foreach ($data['film_types'] as $key => $value) 
-                            {?>
-                                <div class="col-lg-4 col-md-6 col-sm-6">
-                                    <div class="product__item">
-                                        <div class="product__item__pic set-bg" data-setbg="<?= $value['film_img'] ?>">
-                                            <div class="ep"><?= $value['film_current_episode'] ?>/<?= $value['film_end_episode'] ?>
-                                            </div>
-                                            <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                            <div class="view"><i class="fa fa-eye"></i><?= $value['film_views'] ?></div>
-                                        </div>
-                                        <div class="product__item__text">
-                                            <ul>
-                                                <li>Active</li>
-
-                                                <!--   <li>Movie</li>-->
-                                            </ul>
-                                            <h5><a
-                                                    href="<?=  BASEURL;  ?>film/anime_details/<?= $value['film_id'] ?>"><?= $value['film_name_real'] ?></a>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                </div>
-                        <?php } ?>
+            <div class="anime__details__content">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="anime__details__pic set-bg" data-setbg="<?= $data['film_by_id']['film_img'] ?>">
+                            <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                            <div class="view"><i class="fa fa-eye"></i><?= $data['film_by_id']['film_views'] ?></div>
                         </div>
                     </div>
-                    <div class="product__pagination">
-                        <?php 
-                             $url = BASEURL; 
-                             $type_id = $data['type_by_id']['type_id'];
-                            for ($i=1; $i <= $data['sumTrang_film_type'] ; $i++) 
-                            {
-                               
-                                if($data['page'] == $i) echo "<a href='$url film/categories/$type_id/?page=$i' class='current-page'>$i</a>";
-                                else
-                                {
-                                    echo "<a href='$url film/categories/$type_id/?page=$i'>$i</a>";
-                                }
-                            }
-                            if($data['page'] < $data['sumTrang_film_type']) echo "<a href='$url film/$type_id/categories/2/?page=$i'><i class='fa fa-angle-double-right'></i></a>";
-                        ?>
-                        
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-8">
-                    <div class="product__sidebar">
-                        <div class="product__sidebar__view">
-                            <div class="section-title">
-                                <h5>Top Views</h5>
+                    <div class="col-lg-9">
+                        <div class="anime__details__text">
+                            <div class="anime__details__title">
+                                <h3><?= $data['film_by_id']['flim_name'] ?></h3>
+                                <span><?= $data['film_by_id']['film_name_real'] ?> :
+                                    <?= $data['film_by_id']['film_tacgia'] ?></span>
                             </div>
-                            <ul class="filter__controls">
-                                <li class="active" data-filter=".day">Day</li>
-                                <li data-filter=".week">Week</li>
-                                <li data-filter=".month">Month</li>
-                            </ul>
-                            <div class="filter__gallery">
-                            <!-- flim day -->
-                        <?php foreach ($data['day_view'] as $key => $value) 
-                            {
-                        ?>  
-                                <div class="product__sidebar__view__item set-bg mix day "
-                                    data-setbg="<?= $value['film_img'] ?>">
-                                    <div class="ep"><?= $value['film_current_episode'] ?>/ <?= $value['film_end_episode'] ?></div>
-                                    <div class="view"><i class="fa fa-eye"></i><?= $value['film_views'] ?></div>
-                                    <h5><a href="#"><?= $value['film_name_real'] ?></a></h5>
+                            <div class="anime__details__rating">
+                                <div class="rating">
+                                    <a href="#"><i class="fa fa-star"></i></a>
+                                    <a href="#"><i class="fa fa-star"></i></a>
+                                    <a href="#"><i class="fa fa-star"></i></a>
+                                    <a href="#"><i class="fa fa-star"></i></a>
+                                    <a href="#"><i class="fa fa-star-half-o"></i></a>
                                 </div>
-                        <?php } ?>
-                            <!-- flim week -->
-                        <?php foreach ($data['week_view'] as $key => $value) 
-                            {
-                        ?>  
-                                <div class="product__sidebar__view__item set-bg mix week"
-                                    data-setbg="<?= $value['film_img'] ?>">
-                                    <div class="ep"><?= $value['film_current_episode'] ?>/ <?= $value['film_end_episode'] ?></div>
-                                    <div class="view"><i class="fa fa-eye"></i><?= $value['film_views'] ?></div>
-                                    <h5><a href="#"><?= $value['film_name_real'] ?></a></h5>
-                                </div>
-                        <?php } ?>        
-                            <!-- flim year -->
-                        <?php foreach ($data['month_view'] as $key => $value) 
-                            {
-                        ?>      
-                            <c:forEach var="item" items="${month_film}">
-                                <div class="product__sidebar__view__item set-bg mix month"
-                                    data-setbg="<?= $value['film_img'] ?>">
-                                    <div class="ep"><?= $value['film_current_episode'] ?>/ <?= $value['film_end_episode'] ?></div>
-                                    <div class="view"><i class="fa fa-eye"></i><?= $value['film_views'] ?></div>
-                                    <h5><a href="#"><?= $value['film_name_real'] ?></a></h5>
-                                </div>
-                        <?php } ?>                
-                        </div>
-                    </div>
-                        <div class="product__sidebar__comment">
-                            <div class="section-title">
-                                <h5>New Comment</h5>
+                                <span>1.029 Votes</span>
                             </div>
-                            <?php foreach ($data['newcomment'] as $key => $value) 
-                            {
-                            ?>
-                            <div class="product__sidebar__comment__item">
-                                <div class="product__sidebar__comment__item__pic">
-                                    <img src="<?= $value['film_img'] ?>" alt="loi">
-                                </div>
-                                <div class="product__sidebar__comment__item__text">
-                                    <ul>
-                                        <li>Movie</li>
-                                    </ul>
-                                    <h5><a href="#"><?= $value['film_name_real'] ?></a></h5>
-                                    <span><i class="fa fa-eye"></i><?= $value['flim_views'] ?> Views</span>
+                            <p><?= $data['film_by_id']['film_mota'] ?></p>
+                            <div class="anime__details__widget">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <ul>
+                                            <li><span>Type:</span> TV Series</li>
+                                            <li><span>Studios:</span> Lerche</li>
+                                            <li><span>Date aired:</span><?= $data['film_by_id']['film_date_aired'] ?>
+                                            </li>
+                                            <li><span>Status:</span><?= $data['film_by_id']['film_trangthai'] ?></li>
+                                            <li><span>Genre:</span><?= $data['type_by_id']['type_name'] ?></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <ul>
+                                            <li><span>Scores:</span> 7.31 / 1,515</li>
+                                            <li><span>Rating:</span> 8.5 / 161 times</li>
+                                            <li><span>Duration:</span> <?= $data['film_by_id']['film_duration'] ?>
+                                                min/ep</li>
+                                            <li><span>Quality:</span><?= $data['film_by_id']['film_quality'] ?></li>
+                                            <li><span>Views:</span><?= $data['film_by_id']['film_views'] ?></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        <?php } ?>   
+                            <div class="anime__details__btn">
+                                <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
+                                <a href="<?=  BASEURL;  ?>watch/film/<?= $data['film_by_id']['film_id'] ?>#player"
+                                    class="watch-btn"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <div class="anime__details__review" id="reviewsFilm">
+                        <div class="section-title">
+                            <h5>Reviews</h5>
+                        </div>
+                        <?php 
+                            foreach ($data['comment_film'] as $key => $value) 
+                            {
+                        ?>
+                        <div class="anime__review__item">
+                            <div class="anime__review__item__pic">
+                                <img src="<?= BASEURL_CSS ?>/public/assets/img/avatar/<?= $value['url_hinhanh'] ?>"
+                                    alt="loi">
+                            </div>
+                            <div class="anime__review__item__text">
+                                <h6><?= $value['first_name'] ?> <span> 1 Hour ago</span></h6>
+                                <p><?= $value['comment_content'] ?></p>
+                            </div>
+                        </div>
+                        <?php } ?>
+
+
+                    </div>
+
+                    <div class="anime__details__form">
+                        <div class="section-title">
+                            <h5>Your Comment</h5>
+                        </div>
+                        <form id="formcomment">
+                            <input type="hidden" path="commet_film" value="${infoAnime.film_id}">
+                            <textarea placeholder="Your Comment" name="comment_content" id="comment_content"
+                                path="comment_content"></textarea>
+                            <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
+                        </form>
+                    </div>
+                </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="anime__details__sidebar">
+                            <div class="section-title">
+                                <h5>you might like...</h5>
+                            </div>
+                            <?php
+                                foreach ($data['film_same_kind'] as $key => $value) 
+                                {                           
+                            ?>
+                            <div class="product__sidebar__view__item set-bg" data-setbg="<?= $value['film_img'] ?>">
+                            <div class="ep"><?= $value['film_current_episode'] ?>/ <?= $value['film_end_episode'] ?></div>
+                            <div class="view"><i class="fa fa-eye"></i><?= $value['film_views'] ?></div>
+                            <h5><a href="<?= BASEURL?>film/anime_details/<?= $value['film_id'] ?>"><?= $value['film_name_real'] ?></a></h5>
+                            </div>
+                            <?php } ?>
+                        </div>    
+                    </div>
+            </div>
         </div>
     </section>
-    <!-- Product Section End -->
+    <!-- Anime Section End -->
 
     <!-- Footer Section Begin -->
     <footer class="footer">
@@ -276,15 +250,16 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="footer__logo">
-                        <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        <a href="<?=  BASEURL;  ?>index"><img src="img/logo.png" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="footer__nav">
                         <ul>
-                            <li class="active"><a href="<?=  BASEURL;  ?>">Homepage</a></li>
-                            <li><a href="<?=  BASEURL;  ?>film/categories">Categories</a></li>
-                            <li><a href="#">Contacts</a></li>
+                            <li class="active"><a href="<?=  BASEURL;  ?>index">Homepage</a></li>
+                            <li><a href="<?=  BASEURL;  ?>film/categories/1">Categories</a></li>
+                            <li><a href="./blog.html">Our Blog</a></li>
+                            <li><a href="<?=  BASEURL;  ?>contact">Contacts</a></li>
                         </ul>
                     </div>
                 </div>
@@ -317,6 +292,7 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
+
     <?php linkJS("public/assets/js/jquery-3.3.1.min.js") ?>
     <?php linkJS("public/assets/js/bootstrap.min.js") ?>
     <?php linkJS("public/assets/js/player.js") ?>
@@ -328,14 +304,40 @@
 
     <?php linkJS("public/assets/admin/js/bootstrap.bundle.min.j") ?>
     <?php linkJS("public/assets/admin/vendors/toastify/toastify.js") ?>
-
-
     <script type="text/javascript">
-    function sapxep() {
-        var e = document.getElementById("sapxep");
-        alert(e.value);
+    $(document).ready(function() {
+        $("#formcomment").submit(function(e) {
+            e.preventDefault();
 
-    }
+            var comment_model = $("#formcomment").serialize();
+            $.ajax({
+                type: "POST",
+                url: "<?=  BASEURL;  ?>/comment/",
+                data: comment_model,
+                processData: false,
+                dataType: "json",
+                success: function(response) {
+
+                    $("#comment_content").val("");
+                    $("#reviewsFilm").append("<div class='anime__review__item'>" +
+                        "       <div class='anime__review__item__pic'>" +
+                        "          	<img src='<c:url value='/resources/img/avatar/'/>" +
+                        response.url_hinhanh + "' alt='Loi'>" +
+                        "      	</div>" +
+                        "     	<div class='anime__review__item__text'>" +
+                        "               <h6>" + response.first_name +
+                        " <span> 20 Hour ago</span></h6>" +
+                        "               <p>" + response.comment_content + "</p>" +
+                        "    	</div>" +
+                        "   	</div>");
+
+                },
+                error: function(xhr) {
+                    console.log(xhr.responseText);
+                },
+            });
+        });
+    });
     </script>
 </body>
 
