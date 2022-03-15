@@ -71,8 +71,8 @@
                 <div class="col-lg-2">
                     <div class="header__right">
                         <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <!-- <c:choose>
-                            <c:when test="${Session_user !=null}">
+                        <c:choose>
+                            <!-- <c:when test="${Session_user !=null}">
                                 <div class="btn-group mb-1">
                                     <div class="dropdown">
                                         <button class="btn btn-dark dropdown-toggle" type="button"
@@ -89,10 +89,10 @@
                                     </div>
                                 </div>
                             </c:when>
-                            <c:otherwise>
+                            <c:otherwise> -->
 
-                                <a href='<?=  BASEURL;  ?>/user/login'><span class='icon_profile'></span></a>
-                                <br />
+                                <a href='<?=  BASEURL;  ?>user/login'><span class='icon_profile'></span></a>
+                                <!-- <br />
                             </c:otherwise>
                         </c:choose> -->
                     </div>

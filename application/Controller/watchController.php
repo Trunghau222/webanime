@@ -26,6 +26,7 @@
             $comment_film = $this->commnet->comment_by_film_id($film_id);
             $episode_film = $this->episode->getEpisode_by_film_id($film_id,  $episode_name);
             $episode_film_all = $this->episode->getEpisode_by_film_id_all($film_id);
+            $this->film->update_viewFilm($film_id);
             return $this->loadview("anime_watching", ["type_all" => $type_all, "type_by_id" => $type_by_id,
                                                     "film_by_id" => $film_by_id, "comment_film" => $comment_film,              
                                                     'episode_film' => $episode_film, "episode_film_all" => $episode_film_all

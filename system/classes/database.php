@@ -89,15 +89,16 @@
         /**
          * update lại dữ liệu vào bảng
          */
-        public function update($table,$id,$data=[])
+        public function update($table, $key_sql=[], $data=[])
         {
-            $this->data =[];
-            $dataset=array();
+            $this->data = [];
+            $dataset = array();
             foreach ($data as $key => $value) {
-                array_push($dataset,"${key}= '".$value."'");
+                array_push($dataset, "${key}= '".$value."'");
             };
-            $dataset=implode(',',$dataset);
-            $sql="UPDATE ${table} SET ${dataset} WHERE id= '${id}' ";
+            $dataset = implode(',',$dataset);
+            $stringKey = implode("=", $key_sql);
+            $sql = "UPDATE ${table} SET ${dataset} WHERE ${stringKey} ";
             $this->_query($sql);
             return true;          
         }   

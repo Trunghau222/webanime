@@ -76,4 +76,14 @@ use function PHPSTORM_META\type;
             $film_same_kind = $this->checkSql($sql);
             return $film_same_kind;
         }
+        public function update_viewFilm($film_id)
+        {
+            $film = $this->check(self::TABLE_NAME, ['film_id' => $film_id]);
+            $view =  $film['film_views'] +1;
+            $view_day = (int)$film['day_view'] + 1;
+            $view_week = $film['week_view'] + 1;
+            $view_month = $film['month_view'] + 1;
+            $this->update(self::TABLE_NAME, ['film_id' => $film_id], ['day_view' => $view_day, 'week_view' => $view_week,
+                                                        'month_view' => $view_month, 'film_views' => $view]);
+        }
     }
